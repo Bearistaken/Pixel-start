@@ -1,6 +1,27 @@
 import { describe, it } from 'node:test';
 import assert from 'node:assert';
-import { getWeatherCondition } from '../utils/weatherUtils.ts';
+import { getWeatherCondition, convertTemp } from '../utils/weatherUtils.ts';
+
+describe('convertTemp', () => {
+  it('should return Fahrenheit value as is when unit is F', () => {
+    assert.strictEqual(convertTemp(32, 'F'), 32);
+    assert.strictEqual(convertTemp(100, 'F'), 100);
+    assert.strictEqual(convertTemp(-40, 'F'), -40);
+  });
+
+  it('should convert Fahrenheit to Celsius correctly', () => {
+    assert.strictEqual(convertTemp(32, 'C'), 0);
+    assert.strictEqual(convertTemp(212, 'C'), 100);
+    assert.strictEqual(convertTemp(-40, 'C'), -40);
+  });
+
+  it('should round Celsius conversion to nearest integer', () => {
+    // 70F -> 21.11... -> 21
+    assert.strictEqual(convertTemp(70, 'C'), 21);
+    // 71F -> 21.66... -> 22
+    assert.strictEqual(convertTemp(71, 'C'), 22);
+  });
+});
 
 describe('getWeatherCondition', () => {
   it('should return Sunny/Clear Sky for code 0', () => {
