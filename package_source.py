@@ -11,6 +11,7 @@ def create_source_zip(output_filename):
     ]
     include_dirs = ["components", "firefox_addon"]
 
+    # SECURITY: Use relative path to avoid exposing user info or hardcoded paths
     base_dir = os.path.dirname(os.path.abspath(__file__))
     output_path = os.path.join(base_dir, output_filename)
 
