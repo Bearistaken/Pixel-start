@@ -77,7 +77,7 @@ export const SearchWidget: React.FC = () => {
         saveToHistory(query);
 
         const currentEngine = ENGINES[engineIndex];
-        window.open(currentEngine.url + encodeURIComponent(query), '_blank');
+        window.open(currentEngine.url + encodeURIComponent(query), '_blank', 'noopener,noreferrer');
         setQuery('');
         setShowHistory(false);
         inputRef.current?.blur();
