@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
+import { useStickyState } from './hooks/useStickyState';
 import { Responsive, Layout } from 'react-grid-layout';
 // @ts-ignore
 import { WidthProvider } from 'react-grid-layout';
@@ -62,28 +63,6 @@ const DEFAULT_LAYOUTS: Layouts = {
     { i: 'snake', x: 0, y: 22, w: 2, h: 4, minW: 1, minH: 2 }
   ]
 };
-
-function useStickyState<T>(defaultValue: T, key: string): [T, React.Dispatch<React.SetStateAction<T>>] {
-  const [value, setValue] = useState<T>(() => {
-    try {
-      const stickyValue = window.localStorage.getItem(key);
-      return stickyValue !== null ? JSON.parse(stickyValue) : defaultValue;
-    } catch (e) {
-      console.warn("Error reading local storage", e);
-      return defaultValue;
-    }
-  });
-
-  useEffect(() => {
-    try {
-      window.localStorage.setItem(key, JSON.stringify(value));
-    } catch (e) {
-      console.warn("Error writing local storage", e);
-    }
-  }, [key, value]);
-
-  return [value, setValue];
-}
 
 export default function App() {
 
