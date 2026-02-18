@@ -11,7 +11,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.10/css/weather-icons.min.css" integrity="sha384-z7urxOoxW8XTxSu9GHfjF2IMOLNAJ5YBGVEiX0qaKfOzOhfH/HceecZevk7aFifJ" crossorigin="anonymous">
     <!-- apply saved theme before first paint -->
     <script src="theme-init.js"></script>
-    <link rel="stylesheet" href="newtab.css">
+    <style>
+        /* prevent FOUC */
+        html {
+            background-color: var(--color-bg, #222222);
+            color: var(--color-fg, #aaaaaa);
+        }
+
+        body {
+            background-color: var(--color-bg, #222222);
+            color: var(--color-fg, #aaaaaa);
+        }
+    </style>
   <script type="module" crossorigin src="./assets/index-3H9rKr6P.js"></script>
   <link rel="stylesheet" crossorigin href="./assets/index-DTorIOOz.css">
 </head>
