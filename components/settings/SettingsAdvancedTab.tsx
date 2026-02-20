@@ -229,7 +229,7 @@ export const SettingsAdvancedTab: React.FC<SettingsAdvancedTabProps> = ({
                         </div>
                     </div>
 
-                    
+
                     <div className="flex flex-col gap-2 mt-2 border-t border-[var(--color-border)] pt-2 border-dashed">
                         <h3 className="text-[var(--color-accent)] font-bold ">Weather Location</h3>
                         <div className="flex flex-col gap-1 ">
@@ -238,7 +238,7 @@ export const SettingsAdvancedTab: React.FC<SettingsAdvancedTabProps> = ({
                          </div>
                          <div className="flex flex-col gap-1 ">
                             <label htmlFor="longitude" className="text-[var(--color-muted)] text-sm">Longitude</label>
-                            <input type="text" id="longitude" className="bg-[var(--color-bg)] border border-[var(--color-border)] text-[var(--color-fg)] px-2 py-1 text-sm focus:border-[var(--color-accent)] outline-none w-full select-text font-sans" placeholder={String(weatherLocation.longitude ?? '')} onChange={(e) => setWeatherLocation({ latitude: weatherLocation.latitude, longitude: Number(e.target.value) })}/>  
+                            <input type="text" id="longitude" className="bg-[var(--color-bg)] border border-[var(--color-border)] text-[var(--color-fg)] px-2 py-1 text-sm focus:border-[var(--color-accent)] outline-none w-full select-text font-sans" placeholder={String(weatherLocation.longitude ?? '1.234567')} onChange={(e) => setWeatherLocation({ latitude: weatherLocation.latitude, longitude: Number(e.target.value) })}/>  
                         </div>  
                     </div>
 
